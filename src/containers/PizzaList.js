@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import Pizza from '../components/Pizza'
+
+
 class PizzaList extends Component {
+
+  renderPizza = () => {
+    return this.props.pizzas.map(pizzaObj => {
+      return <Pizza pizza={pizzaObj} gatherFormInfo={this.props.gatherFormInfo}/>
+    })
+  }
 
   render() {
     return (
@@ -14,9 +22,7 @@ class PizzaList extends Component {
           </tr>
         </thead>
         <tbody>
-          {
-            //render Pizza here
-          }
+          {this.renderPizza()}
         </tbody>
       </table>
     );
